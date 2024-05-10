@@ -1,0 +1,30 @@
+{
+  "name": "lib-finance-service",
+  "version": "1.0.0",
+  "description": "Welcome to the GitHub repository for **Finance Tracker Helper Library** - A collection of common functions and utilities for managing expenses, investments, and incomes in wallet-watcher projects. It aims to provide a set of reusable components to streamline the development of the application by handling common tasks such as data validation, calculations, and storage.\r ## Project Status: Under Development\r ### What's Happening Now:\r - The library is currently being developed to support the common functionalities between services such as token validations, error handler, logging functionality and various other.  \r ### Documentation\r - **DB Model Documentation:** [Finance Tracker DB Model](https://app.eraser.io/workspace/zBSna17oY9NoSl0HFqjh?origin=share)\r ---\r **Finance Tracker** - Simplifying Financial Management for Everyone!",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayushya100/lib-finance-service.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "nodejs",
+    "express",
+    "finance-tracker"
+  ],
+  "author": "Ayushya Jaiswal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayushya100/lib-finance-service/issues"
+  },
+  "homepage": "https://github.com/Ayushya100/lib-finance-service#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.4",
+    "uuid": "^9.0.1",
+    "winston": "^3.13.0"
+  }
+}
