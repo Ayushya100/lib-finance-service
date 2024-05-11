@@ -25,7 +25,7 @@ const serviceRoutesSchema = new mongoose.Schema(
         validations: [{
             type: String,
             required: false
-        }];
+        }]
     }
 );
 
