@@ -39,6 +39,7 @@ import {
 } from './src/middlewares/index.js';
 import dbConnection from './src/db/dbConnection.js';
 import { executeQuery, executeAggregation } from './src/db/dbQueries.js';
+import { dbOperations } from './src/db/baseDBQueries.js';
 
 export {
     ApiError,
@@ -69,5 +70,6 @@ export {
     registerUser,
     dbConnection,
     executeQuery,
-    executeAggregation
+    executeAggregation,
+    dbOperations
 };
