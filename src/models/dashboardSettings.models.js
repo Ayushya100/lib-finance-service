@@ -36,9 +36,14 @@ const dashboardSettingsSchema = new mongoose.Schema(
             required: false,
             default: 'daily'
         },
-        defaultValue : {
+        default : {
             type: String,
             required: true
+        },
+        isUserAssignable: {
+            type: Boolean,
+            required: true,
+            default: true
         },
         createdOn: {
             type: Date,

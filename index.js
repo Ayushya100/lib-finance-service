@@ -30,10 +30,10 @@ import {
     UserIncomeDetailsModel,
     UserInvestmentDetailsModel,
     MetadataModel,
-    LogsModel
+    LogsModel,
+    ServiceRoutesModel
 } from './src/models/index.js';
 import {
-    verifyToken,
     errorHandler,
     registerUser
 } from './src/middlewares/index.js';
@@ -64,7 +64,7 @@ export {
     UserInvestmentDetailsModel,
     MetadataModel,
     LogsModel,
-    verifyToken,
+    ServiceRoutesModel,
     errorHandler,
     registerUser,
     dbConnection,
