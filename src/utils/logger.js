@@ -48,7 +48,7 @@ const logger = (label = '') => {
 
     return winston.createLogger({
         levels: customLevels.levels,
-        level: 'debug',
+        level: 'success',
         format: format,
         transports: transport
     });
