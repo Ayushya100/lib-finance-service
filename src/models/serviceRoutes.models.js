@@ -25,7 +25,25 @@ const serviceRoutesSchema = new mongoose.Schema(
         validations: [{
             type: String,
             required: false
-        }]
+        }],
+        createdOn: {
+            type: Date,
+            default: Date.now()
+        },
+        createdBy: {
+            type: String,
+            default: 'SYSTEM',
+            trim: true
+        },
+        modifiedOn: {
+            type: Date,
+            default: Date.now()
+        },
+        modifiedBy: {
+            type: String,
+            default: 'SYSTEM',
+            trim: true
+        }
     }
 );
 
