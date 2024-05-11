@@ -7,19 +7,19 @@ const customLevels = {
         error: 0,
         warning: 1,
         info: 2,
-        success: 3,
-        http: 4,
-        verbose: 5,
-        debug: 6
+        http: 3,
+        verbose: 4,
+        debug: 5,
+        success: 6
     },
     colors: {
         error: 'red',
-        warning: 'orange',
-        info: 'yellow',
-        success: 'green',
+        warning: 'yellow',
+        info: 'green',
         http: 'magenta',
         verbose: 'cyan',
-        debug: 'teal'
+        debug: 'blue',
+        success: 'green'
     }
 };
 
