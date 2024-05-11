@@ -11,6 +11,7 @@ import UserIncomeDetailsModel from './userIncomeDetail.models.js';
 import UserInvestmentDetailsModel from './userInvestmentDetail.models.js';
 import MetadataModel from './metadata.models.js';
 import LogsModel from './logs.models.js';
+import ServiceRoutesModel from './serviceRoutes.models.js';
 
 export {
     UserModel,
@@ -25,5 +26,6 @@ export {
     UserIncomeDetailsModel,
     UserInvestmentDetailsModel,
     MetadataModel,
-    LogsModel
+    LogsModel,
+    ServiceRoutesModel
 };
