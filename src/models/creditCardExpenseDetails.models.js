@@ -7,11 +7,11 @@ const creditCardExpenseDetailsSchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'User'
+            ref: 'USER'
         },
         categoryId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'UserWalletCategory'
+            ref: 'USER_WALLET_CATEGORY'
         },
         cardToken: {
             type: String,

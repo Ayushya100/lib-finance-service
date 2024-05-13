@@ -7,6 +7,10 @@ import { SALT_ROUNDS } from '../../constants.js';
 // Users Schema
 const userSchema = new mongoose.Schema(
     {
+        roleId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'USER_ROLE'
+        },
         firstName: {
             type: String,
             required: true,

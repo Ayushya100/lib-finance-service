@@ -12,6 +12,8 @@ import UserInvestmentDetailsModel from './userInvestmentDetail.models.js';
 import MetadataModel from './metadata.models.js';
 import LogsModel from './logs.models.js';
 import ServiceRoutesModel from './serviceRoutes.models.js';
+import RoleScopeModel from './roleScope.models.js';
+import UserRoleModel from './userRole.models.js';
 
 export {
     UserModel,
@@ -27,5 +29,7 @@ export {
     UserInvestmentDetailsModel,
     MetadataModel,
     LogsModel,
-    ServiceRoutesModel
+    ServiceRoutesModel,
+    RoleScopeModel,
+    UserRoleModel
 };

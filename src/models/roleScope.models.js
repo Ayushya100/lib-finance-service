@@ -2,23 +2,19 @@
 
 import mongoose from 'mongoose';
 
-// User dashboard Schema
-const userDashboardSchema = new mongoose.Schema(
+// Role Scope Schema
+const roleScopeSchema = new mongoose.Schema(
     {
-        userId: {
+        roleId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER'
+            ref: 'USER_ROLE'
         },
-        settingId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'DASHBOARD_SETTINGS'
-        },
-        type: {
+        scope: {
             type: String,
-            required: true,
-            default: 'Boolean'
+            trim: true,
+            required: true
         },
-        value: {
+        scopeDesc: {
             type: String,
             required: true
         },
@@ -29,9 +25,9 @@ const userDashboardSchema = new mongoose.Schema(
         },
         createdBy: {
             type: String,
+            default: 'SYSTEM',
             required: false,
-            trim: true,
-            default: 'SYSTEM'
+            trim: true
         },
         modifiedOn: {
             type: Date,
@@ -40,19 +36,19 @@ const userDashboardSchema = new mongoose.Schema(
         },
         modifiedBy: {
             type: String,
-            required: true,
-            trim: true,
-            default: 'SYSTEM'
+            default: 'SYSTEM',
+            required: false,
+            trim: true
         },
         isDeleted: {
             type: Boolean,
-            default: false,
-            required: false
+            required: true,
+            default: false
         }
     }
 );
 
-// User dashboard Model
-const UserDashboardModel = mongoose.model('USER_DASHBOARD', userDashboardSchema);
+// Role Scope Model
+const RoleScopeModel = mongoose.model('ROLE_SCOPE', roleScopeSchema);
 
-export default UserDashboardModel;
+export default RoleScopeModel;
