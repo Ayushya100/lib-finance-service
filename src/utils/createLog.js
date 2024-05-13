@@ -3,8 +3,7 @@
 import { registerLog } from '../db/dbQueries.js';
 import { responseCodes, responseMessage } from '../assets/response/response-codes.js';
 import logger from './logger.js';
-
-let currentUserContext = {};
+import { getUserContext } from './userContext.js';
 
 const getCurrentDateTime = () => {
     let dateNow = new Date();
@@ -37,22 +36,22 @@ const buildResponse = (response) => {
 const buildPayload = (source, msg, toBeRemoved, level, response, additionalInfo) => {
     if (toBeRemoved) {
         for (let field of toBeRemoved) {
-            currentUserContext.body[field] = null;
+            getUserContext.body[field] = null;
         };
     }
 
     let logPayload = {
-        logSessionId: currentUserContext.logSessionId,
-        userId: currentUserContext.userId,
+        logSessionId: getUserContext.logSessionId,
+        userId: getUserContext.userId,
         message: msg,
         level: level,
         timeStamp: getCurrentDateTime(),
         source: source || 'route',
         requestData: {
-            method: currentUserContext.method,
-            url: currentUserContext.url,
-            headers: currentUserContext.headers,
-            body: currentUserContext.body
+            method: getUserContext.method,
+            url: getUserContext.url,
+            headers: getUserContext.headers,
+            body: getUserContext.body
         },
         responseData: buildResponse(response),
         additionalInfo: additionalInfo
@@ -63,15 +62,15 @@ const buildPayload = (source, msg, toBeRemoved, level, response, additionalInfo)
 
 const buildCustomPayload = (source, userId, msg, level, response, additionalInfo, headers, body) => {
     let logPayload = {
-        logSessionId: currentUserContext.logSessionId,
-        userId: userId || currentUserContext.userId,
+        logSessionId: getUserContext.logSessionId,
+        userId: userId || getUserContext.userId,
         message: msg,
         level: level,
         timeStamp: getCurrentDateTime(),
         source: source || 'route',
         requestData: {
-            method: currentUserContext.method,
-            url: currentUserContext.url,
+            method: getUserContext.method,
+            url: getUserContext.url,
             headers: headers,
             body: body
         },
@@ -120,7 +119,6 @@ const logDBAggregationRes = (dbAggregation) => {
 }
 
 export {
-    currentUserContext,
     createNewLog,
     logDBQueryRes,
     logDBAggregationRes

@@ -1,20 +1,14 @@
 'use strict';
 
+import httpContext from 'express-http-context';
+import { createNamespace } from 'cls-hooked';
 import { v4 as uuidv4 } from 'uuid';
-import { currentUserContext } from '../utils/index.js';
 import { logger } from '../utils/index.js';
 
 const header = 'middleware: user-context';
 const log = logger(header);
 
-const registerUser = (req, res, next) => {
-    currentUserContext.method = req.method;
-    currentUserContext.url = req.originalUrl;
-    currentUserContext.userId = req.params?.userId;
-    currentUserContext.headers = req.params;
-    currentUserContext.body = {...req.body};
-    currentUserContext.logSessionId = 'LSI' + uuidv4();
-
+const setUserContext = (req, res, next) => {
     log.http(`Original URL : ${req.originalUrl}`);
     log.http(`Base URL : ${req.baseUrl || null}`);
     log.http(`Method : ${req.method}`);
@@ -27,7 +21,39 @@ const registerUser = (req, res, next) => {
     log.verbose(`Request Rate Reset Time : ${req.rateLimit.resetTime}`);
     log.verbose(`Raw Headers : ${req.rawHeaders}`);
 
-    next();
-}
+    const userNamespace = createNamespace('userNamespace');
 
-export default registerUser;
+    try {
+        log.info('User Context build started');
+
+        userNamespace.run(() => {
+            const logSessionId = 'LSI' + uuidv4();
+            const userId =
+                req.params.userId === null || req.params.userId === undefined
+                ? req.params.userId
+                : req.body.userId === null || req.body.userId === undefined
+                ? req.body.userId
+                : null;
+
+            httpContext.set('method', req.method);
+            httpContext.set('url', req.originalUrl);
+            httpContext.set('userId', userId);
+            httpContext.set('headers', req.params);
+            httpContext.set('body', req.body);
+            httpContext.set('logSessionId', logSessionId);
+        });
+    } catch (err) {
+        log.error('Could not set user context for the current request');
+        httpContext.set('method', null);
+        httpContext.set('url', null);
+        httpContext.set('userId', null);
+        httpContext.set('headers', null);
+        httpContext.set('body', null);
+        httpContext.set('logSessionId', null);
+    } finally {
+        log.info('User Context build completed');
+        next();
+    }
+};
+
+export default setUserContext;
