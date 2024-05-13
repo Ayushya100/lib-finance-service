@@ -15,7 +15,9 @@ import {
     logger,
     createNewLog,
     logDBQueryRes,
-    logDBAggregationRes
+    logDBAggregationRes,
+    getUserContext,
+    clearUserContext
 } from './src/utils/index.js';
 import {
     UserModel,
@@ -37,7 +39,8 @@ import {
 } from './src/models/index.js';
 import {
     errorHandler,
-    registerUser
+    setUserContext,
+    verifyToken
 } from './src/middlewares/index.js';
 import dbConnection from './src/db/dbConnection.js';
 import { executeQuery, executeAggregation } from './src/db/dbQueries.js';
@@ -71,9 +74,12 @@ export {
     RoleScopeModel,
     UserRoleModel,
     errorHandler,
-    registerUser,
     dbConnection,
     executeQuery,
     executeAggregation,
-    dbOperations
+    dbOperations,
+    setUserContext,
+    verifyToken,
+    getUserContext,
+    clearUserContext
 };
