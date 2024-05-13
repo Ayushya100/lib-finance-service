@@ -31,7 +31,9 @@ import {
     UserInvestmentDetailsModel,
     MetadataModel,
     LogsModel,
-    ServiceRoutesModel
+    ServiceRoutesModel,
+    RoleScopeModel,
+    UserRoleModel
 } from './src/models/index.js';
 import {
     errorHandler,
@@ -66,6 +68,8 @@ export {
     MetadataModel,
     LogsModel,
     ServiceRoutesModel,
+    RoleScopeModel,
+    UserRoleModel,
     errorHandler,
     registerUser,
     dbConnection,

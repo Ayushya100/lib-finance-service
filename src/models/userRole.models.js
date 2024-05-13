@@ -2,24 +2,25 @@
 
 import mongoose from 'mongoose';
 
-// Metadata Schema
-const metadataSchema = new mongoose.Schema(
+// User Role Schema
+const userRoleSchema = new mongoose.Schema(
     {
-        userId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER'
-        },
-        type: {
+        roleCode: {
             type: String,
-            required: true
+            required: true,
+            trim: true,
+            unique: true,
+            upperCase: true
         },
-        header: {
+        roleName: {
             type: String,
-            required: true
+            required: true,
+            unique: true,
+            trim: true
         },
-        values: {
-            type: String,
-            required: true
+        isActive: {
+            type: Boolean,
+            default: true
         },
         createdOn: {
             type: Date,
@@ -51,7 +52,7 @@ const metadataSchema = new mongoose.Schema(
     }
 );
 
-// Metadata Model
-const MetadataModel = mongoose.model('METADATA', metadataSchema);
+// User Role Model
+const UserRoleModel = mongoose.model('USER_ROLE', userRoleSchema);
 
-export default MetadataModel;
+export default UserRoleModel;
