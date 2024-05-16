@@ -42,9 +42,15 @@ import {
     setUserContext,
     verifyToken
 } from './src/middlewares/index.js';
-import dbConnection from './src/db/dbConnection.js';
-import { executeQuery, executeAggregation } from './src/db/dbQueries.js';
-import { dbOperations } from './src/db/baseDBQueries.js';
+import {
+    dbConnection,
+    executeQuery,
+    executeAggregation,
+    baseDBTemplate,
+    dashboardSettingTemplate,
+    serviceRoutesTemplate,
+    userRoleTemplate
+} from './src/db/index.js';
 
 export {
     ApiError,
@@ -77,9 +83,12 @@ export {
     dbConnection,
     executeQuery,
     executeAggregation,
-    dbOperations,
+    baseDBTemplate,
     setUserContext,
     verifyToken,
     getUserContext,
-    clearUserContext
+    clearUserContext,
+    dashboardSettingTemplate,
+    serviceRoutesTemplate,
+    userRoleTemplate
 };
