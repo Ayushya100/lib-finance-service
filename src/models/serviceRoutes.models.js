@@ -43,6 +43,11 @@ const serviceRoutesSchema = new mongoose.Schema(
             type: String,
             default: 'SYSTEM',
             trim: true
+        },
+        isDeleted: {
+            type: Boolean,
+            required: true,
+            default: false
         }
     }
 );
