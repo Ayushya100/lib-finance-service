@@ -8,17 +8,17 @@ import { logger } from '../utils/index.js';
 const header = 'middleware: user-context';
 const log = logger(header);
 
-const setUserContext = (req, res, next) => {
+const setContext = (req, res, next) => {
     log.http(`Original URL : ${req.originalUrl}`);
     log.http(`Base URL : ${req.baseUrl || null}`);
     log.http(`Method : ${req.method}`);
     log.verbose(`Access Token : ${req.cookies?.accessToken}`);
     log.verbose(`Refresh Token : ${req.cookies?.refreshToken}`);
     log.verbose(`Request Time : ${new Date(Date.now())}`);
-    log.verbose(`Request Rate Limit : ${req.rateLimit.limit}`);
-    log.verbose(`Request Rate Used : ${req.rateLimit.used}`);
-    log.verbose(`Request Rate Remaining : ${req.rateLimit.remaining}`);
-    log.verbose(`Request Rate Reset Time : ${req.rateLimit.resetTime}`);
+    log.verbose(`Request Rate Limit : ${req.rateLimit?.limit}`);
+    log.verbose(`Request Rate Used : ${req.rateLimit?.used}`);
+    log.verbose(`Request Rate Remaining : ${req.rateLimit?.remaining}`);
+    log.verbose(`Request Rate Reset Time : ${req.rateLimit?.resetTime}`);
     log.verbose(`Raw Headers : ${req.rawHeaders}`);
 
     const userNamespace = createNamespace('userNamespace');
@@ -34,12 +34,13 @@ const setUserContext = (req, res, next) => {
                 : req.body.userId === null || req.body.userId === undefined
                 ? req.body.userId
                 : null;
+            const userPayload = {...req.body};
 
             httpContext.set('method', req.method);
             httpContext.set('url', req.originalUrl);
             httpContext.set('userId', userId);
             httpContext.set('headers', req.params);
-            httpContext.set('body', req.body);
+            httpContext.set('body', userPayload);
             httpContext.set('logSessionId', logSessionId);
         });
     } catch (err) {
@@ -54,6 +55,11 @@ const setUserContext = (req, res, next) => {
         log.info('User Context build completed');
         next();
     }
-};
+}
+
+const setUserContext = (app) => {
+    app.use(httpContext.middleware);
+    app.use(setContext);
+}
 
 export default setUserContext;

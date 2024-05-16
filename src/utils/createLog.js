@@ -34,24 +34,25 @@ const buildResponse = (response) => {
 }
 
 const buildPayload = (source, msg, toBeRemoved, level, response, additionalInfo) => {
+    const userContext = getUserContext();
     if (toBeRemoved) {
         for (let field of toBeRemoved) {
-            getUserContext.body[field] = null;
+            userContext.body[field] = null;
         };
     }
 
     let logPayload = {
-        logSessionId: getUserContext.logSessionId,
-        userId: getUserContext.userId,
+        logSessionId: userContext.logSessionId,
+        userId: userContext.userId,
         message: msg,
         level: level,
         timeStamp: getCurrentDateTime(),
         source: source || 'route',
         requestData: {
-            method: getUserContext.method,
-            url: getUserContext.url,
-            headers: getUserContext.headers,
-            body: getUserContext.body
+            method: userContext.method,
+            url: userContext.url,
+            headers: userContext.headers,
+            body: userContext.body
         },
         responseData: buildResponse(response),
         additionalInfo: additionalInfo
@@ -61,16 +62,17 @@ const buildPayload = (source, msg, toBeRemoved, level, response, additionalInfo)
 }
 
 const buildCustomPayload = (source, userId, msg, level, response, additionalInfo, headers, body) => {
+    const userContext = getUserContext();
     let logPayload = {
-        logSessionId: getUserContext.logSessionId,
-        userId: userId || getUserContext.userId,
+        logSessionId: userContext.logSessionId,
+        userId: userId || userContext.userId,
         message: msg,
         level: level,
         timeStamp: getCurrentDateTime(),
         source: source || 'route',
         requestData: {
-            method: getUserContext.method,
-            url: getUserContext.url,
+            method: userContext.method,
+            url: userContext.url,
             headers: headers,
             body: body
         },
