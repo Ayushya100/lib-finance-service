@@ -9,13 +9,11 @@ const userRoleSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
-            unique: true,
             upperCase: true
         },
         roleName: {
             type: String,
             required: true,
-            unique: true,
             trim: true
         },
         isActive: {
