@@ -5,12 +5,15 @@ import {
     DashboardSettingsModel,
     RoleScopeModel,
     ServiceRoutesModel,
+    UserDashboardModel,
+    UserFinanceModel,
+    UserModel,
     UserRoleModel
 } from '../models/index.js';
 
 class dashboardSettingTemplate extends baseDBTemplate {
     constructor() {
-        const fields = 'categoryName categoryDescription categoryType subCategory type isPeriodic duration';
+        const fields = 'categoryName categoryDescription categoryType subCategory type isPeriodic duration default';
         super(DashboardSettingsModel, fields);
     }
 }
@@ -36,9 +39,33 @@ class roleScopeTemplate extends baseDBTemplate {
     };
 }
 
+class userDashboardTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'userId settingId type value';
+        super(UserDashboardModel, fields);
+    }
+}
+
+class userTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'roleId firstName lastName userName emailId profileImageURL lastLogin loginCount isVerified';
+        super(UserModel, fields);
+    }
+}
+
+class financeTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'userId availableFunds lifeTimeIncome lifeTimeInvestment lifeTimeExpenditure';
+        super(UserFinanceModel, fields);
+    }
+}
+
 export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
     userRoleTemplate,
-    roleScopeTemplate
+    roleScopeTemplate,
+    userDashboardTemplate,
+    userTemplate,
+    financeTemplate
 };
