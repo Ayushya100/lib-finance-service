@@ -49,7 +49,8 @@ import {
     baseDBTemplate,
     dashboardSettingTemplate,
     serviceRoutesTemplate,
-    userRoleTemplate
+    userRoleTemplate,
+    roleScopeTemplate
 } from './src/db/index.js';
 
 export {
@@ -90,5 +91,6 @@ export {
     clearUserContext,
     dashboardSettingTemplate,
     serviceRoutesTemplate,
-    userRoleTemplate
+    userRoleTemplate,
+    roleScopeTemplate
 };

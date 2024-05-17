@@ -3,6 +3,7 @@
 import { baseDBTemplate } from './index.js';
 import {
     DashboardSettingsModel,
+    RoleScopeModel,
     ServiceRoutesModel,
     UserRoleModel
 } from '../models/index.js';
@@ -28,8 +29,16 @@ class userRoleTemplate extends baseDBTemplate {
     }
 }
 
+class roleScopeTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'roleId scope scopeDesc';
+        super(RoleScopeModel, fields);
+    };
+}
+
 export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
-    userRoleTemplate
+    userRoleTemplate,
+    roleScopeTemplate
 };

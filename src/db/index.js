@@ -6,7 +6,8 @@ import { baseDBTemplate } from './baseDBTemplate.js';
 import {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
-    userRoleTemplate
+    userRoleTemplate,
+    roleScopeTemplate
 } from './dbModelsTemplate.js';
 
 export {
@@ -16,5 +17,6 @@ export {
     baseDBTemplate,
     dashboardSettingTemplate,
     serviceRoutesTemplate,
-    userRoleTemplate
+    userRoleTemplate,
+    roleScopeTemplate
 };
