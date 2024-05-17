@@ -7,7 +7,10 @@ import {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
     userRoleTemplate,
-    roleScopeTemplate
+    roleScopeTemplate,
+    userDashboardTemplate,
+    userTemplate,
+    financeTemplate
 } from './dbModelsTemplate.js';
 
 export {
@@ -18,5 +21,8 @@ export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
     userRoleTemplate,
-    roleScopeTemplate
+    roleScopeTemplate,
+    userDashboardTemplate,
+    userTemplate,
+    financeTemplate
 };

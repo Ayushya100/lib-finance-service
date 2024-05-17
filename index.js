@@ -50,7 +50,10 @@ import {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
     userRoleTemplate,
-    roleScopeTemplate
+    roleScopeTemplate,
+    userDashboardTemplate,
+    userTemplate,
+    financeTemplate
 } from './src/db/index.js';
 
 export {
@@ -92,5 +95,8 @@ export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
     userRoleTemplate,
-    roleScopeTemplate
+    roleScopeTemplate,
+    userDashboardTemplate,
+    userTemplate,
+    financeTemplate
 };
