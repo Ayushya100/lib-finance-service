@@ -28,6 +28,16 @@ class baseDBTemplate {
         return await executeQuery(resourceQuery);
     }
 
+    findById = async(query, customFields) => {
+        const resourceQuery = this.model.findById(query);
+        const requestedFields = customFields || this.fields;
+        if (requestedFields) {
+            resourceQuery.select(requestedFields);
+        }
+
+        return await executeQuery(resourceQuery);
+    }
+
     create = async(payload) => {
         return await this.model.create(payload);
     }
