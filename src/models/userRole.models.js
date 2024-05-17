@@ -20,6 +20,10 @@ const userRoleSchema = new mongoose.Schema(
             type: Boolean,
             default: true
         },
+        isDefault: {
+            type: Boolean,
+            default: false
+        },
         createdOn: {
             type: Date,
             required: true,
