@@ -5,10 +5,12 @@ import { responseCodes, responseMessage } from '../assets/response/response-code
 class ApiResponse {
     constructor(
         statusCode,
+        type,
         data,
         message = 'SUCCESS'
     ) {
         this.statusCode = statusCode;
+        this.type = type,
         this.data = data;
         this.message = message;
         this.success = statusCode < 400;
@@ -18,8 +20,9 @@ class ApiResponse {
 const buildApiResponse = (res) => {
     return new ApiResponse(
         responseCodes[res.resType],
+        res.resType,
         res.data,
-        res.resMsg + ' - ' + responseMessage[res.resType]
+        res.resMsg
     );
 }
 
