@@ -48,7 +48,7 @@ class userDashboardTemplate extends baseDBTemplate {
 
 class userTemplate extends baseDBTemplate {
     constructor() {
-        const fields = 'roleId firstName lastName userName emailId profileImageURL lastLogin loginCount isVerified';
+        const fields = 'roleId firstName lastName userName emailId profileImageURL lastLogin loginCount isVerified isDeleted';
         super(UserModel, fields);
     }
 }
