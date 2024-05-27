@@ -32,7 +32,9 @@ const verifyToken = (tokenKey) => (req, res, next) => {
         }
 
         req.user = {
-            userId: decodedToken._id
+            userId: decodedToken._id,
+            userRole: decodedToken.userRole,
+            userScopes: decodedToken.userScopes
         };
         log.info('Token verification completed successfully');
         next();
