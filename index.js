@@ -40,7 +40,8 @@ import {
 import {
     errorHandler,
     setUserContext,
-    verifyToken
+    verifyToken,
+    verifyScope
 } from './src/middlewares/index.js';
 import {
     dbConnection,
@@ -90,6 +91,7 @@ export {
     baseDBTemplate,
     setUserContext,
     verifyToken,
+    verifyScope,
     getUserContext,
     clearUserContext,
     dashboardSettingTemplate,
