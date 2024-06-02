@@ -1,6 +1,7 @@
 'use strict';
 
 import mongoose from 'mongoose';
+import { Schema } from 'mongoose';
 
 // User dashboard Schema
 const userDashboardSchema = new mongoose.Schema(
@@ -19,7 +20,7 @@ const userDashboardSchema = new mongoose.Schema(
             default: 'Boolean'
         },
         value: {
-            type: String,
+            type: Schema.Types.Mixed,
             required: true
         },
         createdOn: {
