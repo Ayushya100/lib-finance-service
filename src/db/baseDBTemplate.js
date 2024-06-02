@@ -1,6 +1,7 @@
 'use strict';
 
-import { executeQuery } from './dbQueries.js';
+import { executeAggregation, executeQuery } from './dbQueries.js';
+import mongoose from 'mongoose';
 
 class baseDBTemplate {
     constructor(model, fields) {
@@ -62,6 +63,31 @@ class baseDBTemplate {
             resourceQuery.select(requestedFields);
         }
         return await executeQuery(resourceQuery);
+    }
+
+    aggregate = async(match, lookup, lookupMatch = null, lookupFields, requiredFields) => {
+        const resourceQuery = this.model.aggregate([
+            {
+                $match: match
+            },
+            {
+                $lookup: lookup
+            },
+            {
+                $match: lookupMatch
+            },
+            {
+                $addFields: lookupFields
+            },
+            {
+                $project: requiredFields
+            }
+        ]);
+        return await executeAggregation(resourceQuery);
+    }
+
+    bulkWrite = async(query) => {
+        return await this.model.bulkWrite(query);
     }
 }
 

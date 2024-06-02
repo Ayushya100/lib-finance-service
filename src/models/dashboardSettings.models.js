@@ -1,6 +1,7 @@
 'use strict';
 
 import mongoose from 'mongoose';
+import { Schema } from 'mongoose';
 
 // Dashboard Settings Schema
 const dashboardSettingsSchema = new mongoose.Schema(
@@ -24,7 +25,7 @@ const dashboardSettingsSchema = new mongoose.Schema(
         type: {
             type: String,
             required: true,
-            default: 'Boolean'
+            default: 'boolean'
         },
         isPeriodic: {
             type: Boolean,
@@ -37,7 +38,7 @@ const dashboardSettingsSchema = new mongoose.Schema(
             default: 'daily'
         },
         default : {
-            type: String,
+            type: Schema.Types.Mixed,
             required: true
         },
         isUserAssignable: {
