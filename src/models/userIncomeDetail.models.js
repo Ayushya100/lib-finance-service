@@ -11,12 +11,20 @@ const userIncomeDetailSchema = new mongoose.Schema(
         },
         categoryId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER_WALLET_CATEGORY'
+            ref: 'WALLET_CATEGORY'
         },
-        cardToken: {
+        accountType: {
             type: String,
             required: true
         },
+        accountToken: {
+            type: String,
+            required: true
+        },
+        tags: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'USER_TAG'
+        }],
         amount: {
             type: Number,
             required: true,
@@ -24,8 +32,7 @@ const userIncomeDetailSchema = new mongoose.Schema(
             default: 1
         },
         detail: {
-            type: String,
-            required: true
+            type: String
         },
         transactionDate: {
             type: Date,

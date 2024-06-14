@@ -11,12 +11,20 @@ const userExpenseDetailSchema = new mongoose.Schema(
         },
         categoryId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER_WALLET_CATEGORY'
+            ref: 'WALLET_CATEGORY'
         },
-        cardToken: {
+        paymentMethod: {
             type: String,
             required: true
         },
+        paymentToken: {
+            type: String,
+            required: true
+        },
+        tags: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'USER_TAG'
+        }],
         amount: {
             type: Number,
             required: true,

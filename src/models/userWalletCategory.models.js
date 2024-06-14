@@ -16,8 +16,20 @@ const userWalletCategorySchema = new mongoose.Schema(
         },
         categoryName: {
             type: String,
-            required: true,
-            trim: true
+            required: true
+        },
+        categoryDescription: {
+            type: String
+        },
+        icon: {
+            type: String
+        },
+        color: {
+            type: String
+        },
+        isActive: {
+            type: Boolean,
+            default: true
         },
         createdOn: {
             type: Date,
@@ -50,6 +62,6 @@ const userWalletCategorySchema = new mongoose.Schema(
 );
 
 // User Credit Card Model
-const UserWalletCategoryModel = mongoose.model('USER_WALLET_CATEGORY', userWalletCategorySchema);
+const UserWalletCategoryModel = mongoose.model('WALLET_CATEGORY', userWalletCategorySchema);
 
 export default UserWalletCategoryModel;

@@ -2,35 +2,44 @@
 
 import mongoose from 'mongoose';
 
-// User Credit Card Expense Details Schema
-const creditCardExpenseDetailsSchema = new mongoose.Schema(
+// User Account Schema
+const userAccountSchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'USER'
         },
-        categoryId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER_WALLET_CATEGORY'
+        token: {
+            type: String,
+            unique: true,
+            required: true
         },
-        cardToken: {
+        accountName: {
+            type: String,
+            required: true
+        },
+        accountNumber: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        accountDate: {
+            type: Date,
+            required: true
+        },
+        holderName: {
             type: String,
             required: true
         },
         amount: {
             type: Number,
-            required: true,
-            min: 1,
-            default: 1
+            default: 0,
+            required: false
         },
-        detail: {
-            type: String,
+        isActive: {
+            type: Boolean,
+            default: true,
             required: true
-        },
-        transactionDate: {
-            type: Date,
-            required: true,
-            default: Date.now()
         },
         createdOn: {
             type: Date,
@@ -62,7 +71,7 @@ const creditCardExpenseDetailsSchema = new mongoose.Schema(
     }
 );
 
-// User Credit Card Expense Details Model
-const CreditCardExpenseModel = mongoose.model('CREDIT_CARD_EXPENSE', creditCardExpenseDetailsSchema);
+// user Account Model
+const UserAccountModel = mongoose.model('USER_ACCOUNT', userAccountSchema);
 
-export default CreditCardExpenseModel;
+export default UserAccountModel;

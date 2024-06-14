@@ -2,39 +2,34 @@
 
 import mongoose from 'mongoose';
 
-// Investment Account Info Schema
-const userInvestmentAccountInfoSchema = new mongoose.Schema(
+// Payment Methods Schema
+const paymentMethodsSchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'USER'
         },
-        token: {
-            type: String,
-            unique: true,
-            required: true
+        accountId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'USER_ACCOUNT'
         },
-        accountName: {
+        token: {
             type: String,
             required: true,
             unique: true
         },
-        accountNumber: {
+        paymentNumber: {
             type: String,
+            unique: true
+        },
+        paymentType: {
+            type: String,
+            enum: ['CASH', 'UPI', 'INTERNET-BANKING', 'MOBILE-BANKING', 'CHEQUE', 'DEMAND-DRAFT'],
             required: true
         },
-        accountDate: {
-            type: String,
-            required: true
-        },
-        holderName: {
-            type: String,
-            required: true
-        },
-        amount: {
+        balance: {
             type: Number,
-            default: 0,
-            required: false
+            default: 0
         },
         isActive: {
             type: Boolean,
@@ -43,24 +38,20 @@ const userInvestmentAccountInfoSchema = new mongoose.Schema(
         },
         createdOn: {
             type: Date,
-            required: true,
             default: Date.now()
         },
         createdBy: {
             type: String,
             default: 'SYSTEM',
-            required: false,
             trim: true
         },
         modifiedOn: {
             type: Date,
-            required: true,
             default: Date.now()
         },
         modifiedBy: {
             type: String,
             default: 'SYSTEM',
-            required: false,
             trim: true
         },
         isDeleted: {
@@ -71,7 +62,7 @@ const userInvestmentAccountInfoSchema = new mongoose.Schema(
     }
 );
 
-// Investment Account Info Model
-const InvestmentAccountInfoModel = mongoose.model('USER_INVESTMENT_ACCOUNT', userInvestmentAccountInfoSchema);
+// Payment Methods Model
+const PaymentMethodsModel = mongoose.model('PAYMENT_METHOD', paymentMethodsSchema);
 
-export default InvestmentAccountInfoModel;
+export default PaymentMethodsModel;
