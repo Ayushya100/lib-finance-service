@@ -2,21 +2,19 @@
 
 import mongoose from 'mongoose';
 
-// Role Scope Schema
-const roleScopeSchema = new mongoose.Schema(
+// User Tags Schema
+const userTagsSchema = new mongoose.Schema(
     {
-        roleId: {
+        userId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER_ROLE'
+            ref: 'USER'
         },
-        scope: {
-            type: String,
-            trim: true,
-            required: true
-        },
-        scopeDescription: {
+        tagName: {
             type: String,
             required: true
+        },
+        tagDescription: {
+            type: String
         },
         createdOn: {
             type: Date,
@@ -48,7 +46,7 @@ const roleScopeSchema = new mongoose.Schema(
     }
 );
 
-// Role Scope Model
-const RoleScopeModel = mongoose.model('ROLE_SCOPE', roleScopeSchema);
+// User Tags Model
+const UserTagsModel = mongoose.model('USER_TAG', userTagsSchema);
 
-export default RoleScopeModel;
+export default UserTagsModel;

@@ -2,12 +2,12 @@
 
 import mongoose from 'mongoose';
 
-// Card Info Schema
-const cardInfoSchema = new mongoose.Schema(
+// User Cards Schema
+const userCardsSchema = new mongoose.Schema(
     {
-        userId: {
+        accountId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER'
+            ref: 'USER_ACCOUNT'
         },
         token: {
             type: String,
@@ -23,22 +23,17 @@ const cardInfoSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        bankInfo: {
-            type: String,
-            required: true
-        },
         expirationDate: {
-            type: String,
+            type: Date,
             required: true
         },
         holderName: {
             type: String,
             required: true
         },
-        cardColor: {
+        color: {
             type: String,
-            required: false,
-            default: '#ffffff'
+            required: false
         },
         balance: {
             type: Number,
@@ -79,7 +74,7 @@ const cardInfoSchema = new mongoose.Schema(
     }
 );
 
-// Card Info Model
-const CardInfoModel = mongoose.model('CARD_INFO', cardInfoSchema);
+// User Card Model
+const UserCardModel = mongoose.model('USER_CARD', userCardsSchema);
 
-export default CardInfoModel;
+export default UserCardModel;

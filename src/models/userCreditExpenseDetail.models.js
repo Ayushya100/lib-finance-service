@@ -2,8 +2,8 @@
 
 import mongoose from 'mongoose';
 
-// User Investment Details Schema
-const userInvestmentDetailSchema = new mongoose.Schema(
+// User Credit Expense Details Schema
+const userCreditExpenseDetailSchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -13,15 +13,7 @@ const userInvestmentDetailSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'WALLET_CATEGORY'
         },
-        accountToken: {
-            type: String,
-            required: true
-        },
-        paymentMethod: {
-            type: String,
-            required: true
-        },
-        paymentToken: {
+        cardToken: {
             type: String,
             required: true
         },
@@ -73,7 +65,7 @@ const userInvestmentDetailSchema = new mongoose.Schema(
     }
 );
 
-// User Investment Details Model
-const UserInvestmentDetailsModel = mongoose.model('USER_INVESTMENT', userInvestmentDetailSchema);
+// User Credit Expense Details Model
+const UserCreditExpenseDetailModel = mongoose.model('USER_CREDIT_EXPENSE', userCreditExpenseDetailSchema);
 
-export default UserInvestmentDetailsModel;
+export default UserCreditExpenseDetailModel;
