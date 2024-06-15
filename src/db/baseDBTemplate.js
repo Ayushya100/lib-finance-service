@@ -65,6 +65,28 @@ class baseDBTemplate {
         return await executeQuery(resourceQuery);
     }
 
+    findOneAndUpdate = async(userId, condition, newValues, customFields) => {
+        const resourceQuery = this.model.findOneAndUpdate(
+            condition,
+            {
+                $set: {
+                    ...newValues,
+                    modifiedOn: Date.now(),
+                    modifiedBy: userId
+                }
+            },
+            {
+                new: true
+            }
+        );
+        const requestedFields = customFields || this.fields;
+
+        if (requestedFields) {
+            resourceQuery.select(requestedFields);
+        }
+        return await executeQuery(resourceQuery);
+    }
+
     aggregate = async(match, lookup, lookupMatch = null, lookupFields, requiredFields) => {
         const resourceQuery = this.model.aggregate([
             {
