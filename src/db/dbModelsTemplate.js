@@ -34,7 +34,7 @@ class userRoleTemplate extends baseDBTemplate {
 
 class roleScopeTemplate extends baseDBTemplate {
     constructor() {
-        const fields = 'roleId scope scopeDesc';
+        const fields = 'roleId scope scopeDescription';
         super(RoleScopeModel, fields);
     };
 }
