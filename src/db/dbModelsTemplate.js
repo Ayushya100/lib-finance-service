@@ -27,7 +27,7 @@ class serviceRoutesTemplate extends baseDBTemplate {
 
 class userRoleTemplate extends baseDBTemplate {
     constructor() {
-        const fields = 'roleCode roleName isActive isDefault';
+        const fields = 'roleCode roleName isActive isDefault isDeleted';
         super(UserRoleModel, fields);
     }
 }
