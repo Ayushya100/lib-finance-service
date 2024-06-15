@@ -20,7 +20,7 @@ class dashboardSettingTemplate extends baseDBTemplate {
 
 class serviceRoutesTemplate extends baseDBTemplate {
     constructor() {
-        const fields = 'path microservice port method validations';
+        const fields = 'path microservice port method validations isDeleted';
         super(ServiceRoutesModel, fields);
     }
 }
