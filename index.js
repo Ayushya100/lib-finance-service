@@ -37,7 +37,8 @@ import {
     UserInvestmentDetailsModel,
     UserCreditExpenseDetailModel,
     MetadataModel,
-    LogsModel
+    LogsModel,
+    TaskAccountModel
 } from './src/models/index.js';
 import {
     errorHandler,
@@ -56,7 +57,9 @@ import {
     roleScopeTemplate,
     userDashboardTemplate,
     userTemplate,
-    financeTemplate
+    financeTemplate,
+    userAccountTemplate,
+    taskAccountTemplate
 } from './src/db/index.js';
 
 export {
@@ -88,6 +91,7 @@ export {
     UserCreditExpenseDetailModel,
     MetadataModel,
     LogsModel,
+    TaskAccountModel,
     errorHandler,
     dbConnection,
     executeQuery,
@@ -104,5 +108,7 @@ export {
     roleScopeTemplate,
     userDashboardTemplate,
     userTemplate,
-    financeTemplate
+    financeTemplate,
+    userAccountTemplate,
+    taskAccountTemplate
 };

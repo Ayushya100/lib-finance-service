@@ -2,11 +2,13 @@
 
 import jwt from 'jsonwebtoken';
 import { logger } from '../utils/index.js';
+import { getUserLang } from '../db/index.js';
+import { setUserLanguage } from '../utils/index.js';
 
 const header = 'middleware: verify-token';
 const log = logger(header);
 
-const verifyToken = (tokenKey) => (req, res, next) => {
+const verifyToken = (tokenKey) => async(req, res, next) => {
     try {
         log.info('Token verification for user started');
         const accessToken = req.cookies?.accessToken || req.header('Authorization')?.replace('Bearer ', '');
@@ -30,6 +32,10 @@ const verifyToken = (tokenKey) => (req, res, next) => {
                 isValid: false
             });
         }
+
+        let userLanguage = await getUserLang(decodedToken._id);
+        userLanguage = userLanguage[0];
+        setUserLanguage(userLanguage.value);
 
         req.user = {
             userId: decodedToken._id,
