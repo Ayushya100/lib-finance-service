@@ -2,6 +2,12 @@
 
 import httpContext from 'express-http-context';
 
+let userLanguage = 'eng';
+
+const setUserLanguage = (userLang) => {
+    userLanguage = userLang;
+}
+
 const getUserContext = () => {
     const userId = httpContext.get('userId');
     const method = httpContext.get('method');
@@ -9,6 +15,7 @@ const getUserContext = () => {
     const headers = httpContext.get('headers');
     const body = httpContext.get('body');
     const logSessionId = httpContext.get('logSessionId');
+    const userLang = userLanguage;
 
     return {
         userId,
@@ -16,7 +23,8 @@ const getUserContext = () => {
         url,
         headers,
         body,
-        logSessionId
+        logSessionId,
+        userLang
     };
 }
 
@@ -25,6 +33,7 @@ const clearUserContext = () => {
 }
 
 export {
+    setUserLanguage,
     getUserContext,
     clearUserContext
 };

@@ -5,6 +5,8 @@ import {
     DashboardSettingsModel,
     RoleScopeModel,
     ServiceRoutesModel,
+    TaskAccountModel,
+    UserAccountModel,
     UserDashboardModel,
     UserFinanceModel,
     UserModel,
@@ -60,6 +62,20 @@ class financeTemplate extends baseDBTemplate {
     }
 }
 
+class userAccountTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'userId token accountName accountNumber accountType accountDate holderName amount isActive';
+        super(UserAccountModel, fields);
+    }
+}
+
+class taskAccountTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'userId debitFrom creditTo taskType duration durationCount interestApplicable interestRate startDate endDate afterEndDepositTo nextDepositDate';
+        super(TaskAccountModel, fields);
+    }
+}
+
 export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
@@ -67,5 +83,7 @@ export {
     roleScopeTemplate,
     userDashboardTemplate,
     userTemplate,
-    financeTemplate
+    financeTemplate,
+    userAccountTemplate,
+    taskAccountTemplate
 };

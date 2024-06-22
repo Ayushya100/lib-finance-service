@@ -1,7 +1,11 @@
 'use strict';
 
 import dbConnection from './dbConnection.js';
-import { executeQuery, executeAggregation } from './dbQueries.js';
+import {
+    executeQuery,
+    executeAggregation,
+    getUserLang
+} from './dbQueries.js';
 import { baseDBTemplate } from './baseDBTemplate.js';
 import {
     dashboardSettingTemplate,
@@ -10,13 +14,16 @@ import {
     roleScopeTemplate,
     userDashboardTemplate,
     userTemplate,
-    financeTemplate
+    financeTemplate,
+    userAccountTemplate,
+    taskAccountTemplate
 } from './dbModelsTemplate.js';
 
 export {
     dbConnection,
     executeQuery,
     executeAggregation,
+    getUserLang,
     baseDBTemplate,
     dashboardSettingTemplate,
     serviceRoutesTemplate,
@@ -24,5 +31,7 @@ export {
     roleScopeTemplate,
     userDashboardTemplate,
     userTemplate,
-    financeTemplate
+    financeTemplate,
+    userAccountTemplate,
+    taskAccountTemplate
 };

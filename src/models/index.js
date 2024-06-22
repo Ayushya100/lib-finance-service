@@ -18,6 +18,7 @@ import UserInvestmentDetailsModel from './userInvestmentDetail.models.js';
 import UserCreditExpenseDetailModel from './userCreditExpenseDetail.models.js';
 import MetadataModel from './metadata.models.js';
 import LogsModel from './logs.models.js';
+import TaskAccountModel from './taskAccount.models.js';
 
 export {
     ServiceRoutesModel,
@@ -37,5 +38,6 @@ export {
     UserInvestmentDetailsModel,
     UserCreditExpenseDetailModel,
     MetadataModel,
-    LogsModel
+    LogsModel,
+    TaskAccountModel
 };

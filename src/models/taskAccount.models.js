@@ -1,48 +1,55 @@
 'use strict';
 
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
-// User Account Schema
-const userAccountSchema = new mongoose.Schema(
+// Task Account Schema
+const taskAccountSchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'USER'
         },
-        token: {
-            type: String,
-            unique: true,
-            required: true
-        },
-        accountName: {
+        debitFrom: {
             type: String,
             required: true
         },
-        accountNumber: {
-            type: String,
-            required: true,
-            unique: true
-        },
-        accountType: {
+        creditTo: {
             type: String,
             required: true
         },
-        accountDate: {
+        taskType: {
             type: String,
             required: true
         },
-        holderName: {
+        duration: {
             type: String,
             required: true
         },
-        amount: {
+        durationCount: {
             type: Number,
-            default: 0,
+            required: true
+        },
+        interestApplicable: {
+            type: Boolean,
+            default: true
+        },
+        interestRate: {
+            type: Number
+        },
+        startDate: {
+            type: Date,
+            required: true
+        },
+        endDate: {
+            type: Schema.Types.Mixed,
             required: false
         },
-        isActive: {
-            type: Boolean,
-            default: true,
+        afterEndDepositTo: {
+            type: Schema.Types.Mixed,
+            required: false
+        },
+        nextDepositDate: {
+            type: Date,
             required: true
         },
         createdOn: {
@@ -75,7 +82,7 @@ const userAccountSchema = new mongoose.Schema(
     }
 );
 
-// user Account Model
-const UserAccountModel = mongoose.model('USER_ACCOUNT', userAccountSchema);
+// Task Account Model
+const TaskAccountModel = mongoose.model('TASK_ACCOUNT', taskAccountSchema);
 
-export default UserAccountModel;
+export default TaskAccountModel;

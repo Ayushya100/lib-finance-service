@@ -8,7 +8,11 @@ import {
     logDBQueryRes,
     logDBAggregationRes
 } from './createLog.js';
-import { getUserContext, clearUserContext } from './userContext.js';
+import {
+    setUserLanguage,
+    getUserContext,
+    clearUserContext
+} from './userContext.js';
 
 export {
     ApiError,
@@ -19,6 +23,7 @@ export {
     createNewLog,
     logDBQueryRes,
     logDBAggregationRes,
+    setUserLanguage,
     getUserContext,
     clearUserContext
 };
