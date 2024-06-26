@@ -3,6 +3,7 @@
 import { baseDBTemplate } from './index.js';
 import {
     DashboardSettingsModel,
+    PaymentMethodsModel,
     RoleScopeModel,
     ServiceRoutesModel,
     TaskAccountModel,
@@ -76,6 +77,13 @@ class taskAccountTemplate extends baseDBTemplate {
     }
 }
 
+class paymentMethodsTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'userId accountId token paymentName paymentNumber paymentType balance isActive';
+        super(PaymentMethodsModel, fields);
+    }
+}
+
 export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
@@ -85,5 +93,6 @@ export {
     userTemplate,
     financeTemplate,
     userAccountTemplate,
-    taskAccountTemplate
+    taskAccountTemplate,
+    paymentMethodsTemplate
 };

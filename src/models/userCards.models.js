@@ -7,7 +7,8 @@ const userCardsSchema = new mongoose.Schema(
     {
         accountId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER_ACCOUNT'
+            ref: 'USER_ACCOUNT',
+            required: true
         },
         token: {
             type: String,

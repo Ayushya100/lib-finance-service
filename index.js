@@ -59,7 +59,8 @@ import {
     userTemplate,
     financeTemplate,
     userAccountTemplate,
-    taskAccountTemplate
+    taskAccountTemplate,
+    paymentMethodsTemplate
 } from './src/db/index.js';
 
 export {
@@ -110,5 +111,6 @@ export {
     userTemplate,
     financeTemplate,
     userAccountTemplate,
-    taskAccountTemplate
+    taskAccountTemplate,
+    paymentMethodsTemplate
 };

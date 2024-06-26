@@ -16,7 +16,8 @@ import {
     userTemplate,
     financeTemplate,
     userAccountTemplate,
-    taskAccountTemplate
+    taskAccountTemplate,
+    paymentMethodsTemplate
 } from './dbModelsTemplate.js';
 
 export {
@@ -33,5 +34,6 @@ export {
     userTemplate,
     financeTemplate,
     userAccountTemplate,
-    taskAccountTemplate
+    taskAccountTemplate,
+    paymentMethodsTemplate
 };

@@ -1,13 +1,14 @@
 'use strict';
 
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 // Payment Methods Schema
 const paymentMethodsSchema = new mongoose.Schema(
     {
         userId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER'
+            ref: 'USER',
+            required: true
         },
         accountId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -15,16 +16,19 @@ const paymentMethodsSchema = new mongoose.Schema(
         },
         token: {
             type: String,
-            required: true,
-            unique: true
+            unique: true,
+            required: true
+        },
+        paymentName: {
+            type: String,
+            required: true
         },
         paymentNumber: {
-            type: String,
-            unique: true
+            type: Schema.Types.Mixed
         },
         paymentType: {
             type: String,
-            enum: ['CASH', 'UPI', 'INTERNET-BANKING', 'MOBILE-BANKING', 'CHEQUE', 'DEMAND-DRAFT'],
+            // enum: ['CASH', 'UPI', 'WALLET', 'INTERNET-BANKING', 'MOBILE-BANKING', 'CHEQUE', 'DEMAND-DRAFT'],
             required: true
         },
         balance: {
