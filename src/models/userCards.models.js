@@ -5,10 +5,14 @@ import mongoose from 'mongoose';
 // User Cards Schema
 const userCardsSchema = new mongoose.Schema(
     {
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'USER',
+            required: true
+        },
         accountId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'USER_ACCOUNT',
-            required: true
+            ref: 'USER_ACCOUNT'
         },
         token: {
             type: String,
@@ -25,7 +29,7 @@ const userCardsSchema = new mongoose.Schema(
             required: true
         },
         expirationDate: {
-            type: Date,
+            type: String,
             required: true
         },
         holderName: {

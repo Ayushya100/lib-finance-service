@@ -8,6 +8,7 @@ import {
     ServiceRoutesModel,
     TaskAccountModel,
     UserAccountModel,
+    UserCardModel,
     UserDashboardModel,
     UserFinanceModel,
     UserModel,
@@ -84,6 +85,13 @@ class paymentMethodsTemplate extends baseDBTemplate {
     }
 }
 
+class cardMethodsTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'userId accountId token cardNumber cardType holderName balance isActive';
+        super(UserCardModel, fields);
+    }
+}
+
 export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
@@ -94,5 +102,6 @@ export {
     financeTemplate,
     userAccountTemplate,
     taskAccountTemplate,
-    paymentMethodsTemplate
+    paymentMethodsTemplate,
+    cardMethodsTemplate
 };

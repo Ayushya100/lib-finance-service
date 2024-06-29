@@ -60,7 +60,8 @@ import {
     financeTemplate,
     userAccountTemplate,
     taskAccountTemplate,
-    paymentMethodsTemplate
+    paymentMethodsTemplate,
+    cardMethodsTemplate
 } from './src/db/index.js';
 
 export {
@@ -112,5 +113,6 @@ export {
     financeTemplate,
     userAccountTemplate,
     taskAccountTemplate,
-    paymentMethodsTemplate
+    paymentMethodsTemplate,
+    cardMethodsTemplate
 };
