@@ -12,6 +12,7 @@ const setContext = (req, res, next) => {
     log.http(`Original URL : ${req.originalUrl}`);
     log.http(`Base URL : ${req.baseUrl || null}`);
     log.http(`Method : ${req.method}`);
+    log.http(`Protocol : ${req.protocol}`)
     log.verbose(`Access Token : ${req.cookies?.accessToken}`);
     log.verbose(`Refresh Token : ${req.cookies?.refreshToken}`);
     log.verbose(`Request Time : ${new Date(Date.now())}`);

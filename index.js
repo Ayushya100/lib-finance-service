@@ -38,7 +38,8 @@ import {
     UserCreditExpenseDetailModel,
     MetadataModel,
     LogsModel,
-    TaskAccountModel
+    TaskAccountModel,
+    ServiceConfigModel
 } from './src/models/index.js';
 import {
     errorHandler,
@@ -53,6 +54,7 @@ import {
     baseDBTemplate,
     dashboardSettingTemplate,
     serviceRoutesTemplate,
+    serviceConfigTemplate,
     userRoleTemplate,
     roleScopeTemplate,
     userDashboardTemplate,
@@ -94,6 +96,7 @@ export {
     MetadataModel,
     LogsModel,
     TaskAccountModel,
+    ServiceConfigModel,
     errorHandler,
     dbConnection,
     executeQuery,
@@ -106,6 +109,7 @@ export {
     clearUserContext,
     dashboardSettingTemplate,
     serviceRoutesTemplate,
+    serviceConfigTemplate,
     userRoleTemplate,
     roleScopeTemplate,
     userDashboardTemplate,

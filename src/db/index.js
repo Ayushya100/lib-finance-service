@@ -10,6 +10,7 @@ import { baseDBTemplate } from './baseDBTemplate.js';
 import {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
+    serviceConfigTemplate,
     userRoleTemplate,
     roleScopeTemplate,
     userDashboardTemplate,
@@ -29,6 +30,7 @@ export {
     baseDBTemplate,
     dashboardSettingTemplate,
     serviceRoutesTemplate,
+    serviceConfigTemplate,
     userRoleTemplate,
     roleScopeTemplate,
     userDashboardTemplate,
