@@ -5,6 +5,7 @@ import {
     DashboardSettingsModel,
     PaymentMethodsModel,
     RoleScopeModel,
+    ServiceConfigModel,
     ServiceRoutesModel,
     TaskAccountModel,
     UserAccountModel,
@@ -26,6 +27,13 @@ class serviceRoutesTemplate extends baseDBTemplate {
     constructor() {
         const fields = 'path microservice port method validations isDeleted';
         super(ServiceRoutesModel, fields);
+    }
+}
+
+class serviceConfigTemplate extends baseDBTemplate {
+    constructor() {
+        const fields = 'microservice environment port isDeleted';
+        super(ServiceConfigModel, fields);
     }
 }
 
@@ -95,6 +103,7 @@ class cardMethodsTemplate extends baseDBTemplate {
 export {
     dashboardSettingTemplate,
     serviceRoutesTemplate,
+    serviceConfigTemplate,
     userRoleTemplate,
     roleScopeTemplate,
     userDashboardTemplate,

@@ -19,6 +19,7 @@ import UserCreditExpenseDetailModel from './userCreditExpenseDetail.models.js';
 import MetadataModel from './metadata.models.js';
 import LogsModel from './logs.models.js';
 import TaskAccountModel from './taskAccount.models.js';
+import ServiceConfigModel from './serviceConfig.models.js';
 
 export {
     ServiceRoutesModel,
@@ -39,5 +40,6 @@ export {
     UserCreditExpenseDetailModel,
     MetadataModel,
     LogsModel,
-    TaskAccountModel
+    TaskAccountModel,
+    ServiceConfigModel
 };
